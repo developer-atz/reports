@@ -19,32 +19,32 @@ The Web3 features (wallet connection, wallet login, send token) are working and 
 
 ```text
 ┌──────────────────────────────────────┐
-│ 1. CONNECT WALLET                     │
-│    (MetaMask / WalletConnect / CB)    │
-└──────────────────┬────────────────────┘
+│ 1. CONNECT WALLET                    │
+│    (MetaMask / WalletConnect / CB)   │
+└──────────────────┬───────────────────┘
      • Consolidate 3 connector logic ........ [MEDIUM]
      • Move RPC API key to env var .......... [MEDIUM]
                      │
                      ▼
 ┌──────────────────────────────────────┐
-│ 2. SIGN-IN (SIWE)                     │
-└──────────────────┬────────────────────┘
+│ 2. SIGN-IN (SIWE)                    │
+└──────────────────┬───────────────────┘
      • Move nonce to server-issued .......... [CRITICAL]
      • Remove/gate debug page from prod ..... [HIGH]
      • Re-enable chain check before signing . [MEDIUM]
                      │
                      ▼
 ┌──────────────────────────────────────┐
-│ 3. SESSION & MULTI-WALLET             │
-└──────────────────┬────────────────────┘
+│ 3. SESSION & MULTI-WALLET            │
+└──────────────────┬───────────────────┘
      • Add permanent wallet-unlink feature .. [LOW]
                      │
                      ▼
 ┌──────────────────────────────────────┐
-│ 4. SEND TOKEN                         │
-│    Recipient → Amount → Confirm&Sign  │
-│    → Wait Confirmation                │
-└──────────────────┬────────────────────┘
+│ 4. SEND TOKEN                        │
+│    Recipient → Amount → Confirm&Sign │
+│    → Wait Confirmation               │
+└──────────────────┬───────────────────┘
      [Recipient step]
      • Validate recipient address format .... [HIGH]
      • Warn on special addresses ............ [MEDIUM]
