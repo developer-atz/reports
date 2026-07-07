@@ -8,7 +8,7 @@ The Web3 features (wallet connection, wallet login, send token) are working and 
 
 | # | Feature | Short description | Main improvement proposal |
 |---|---|---|---|
-| 1 | **Wallet connection** | Users connect via MetaMask, WalletConnect (QR scan), or Coinbase Wallet. | Consolidate the handling logic for the 3 wallet types (currently written separately, prone to inconsistent behavior between wallets); remove the "Brave Wallet" option, which doesn't actually work yet. |
+| 1 | **Wallet connection** | Users connect via MetaMask, WalletConnect (QR scan), or Coinbase Wallet. | On mobile, connecting via deep link doesn't work — tapping to open the wallet app fails to complete the connection, so mobile users are effectively stuck. Also, disconnecting a Coinbase Wallet shows the loading spinner twice before it actually finishes. |
 | 2 | **Wallet login (SIWE)** | Authenticates the user's identity by signing a message instead of using a password. | **Top priority**: review the "signature reuse" protection mechanism together with the backend team. |
 | 3 | **Send token** | A 5-step flow: choose recipient → choose currency/amount → confirm → sign → wait for blockchain confirmation. Automatically estimates gas fees and warns if the wallet lacks funds to cover them. | Add an instant warning when the user enters an incorrectly formatted recipient address; preserve transaction state if the user accidentally refreshes mid-flow. |
 | 4 | **Multi-wallet management** | Users can link multiple wallets to one account, view the list, and switch the active wallet. | Add the ability to permanently remove a wallet from the account (currently only a temporary disconnect exists). |
@@ -22,8 +22,8 @@ The Web3 features (wallet connection, wallet login, send token) are working and 
 │ 1. CONNECT WALLET                    │
 │    (MetaMask / WalletConnect / CB)   │
 └──────────────────────────────────────┘
-     • Consolidate 3 connector logic ........ [MEDIUM]
-     • Move RPC API key to env var .......... [MEDIUM]
+     • Fix mobile deep-link connect ......... [HIGH]
+     • Coinbase disconnect double-loading ... [MEDIUM]
                     │
                     ▼
 ┌──────────────────────────────────────┐
@@ -63,8 +63,8 @@ Summary by step:
 
 | Flow step | Improvement proposal | Priority |
 |---|---|---|
-| 1. Connect Wallet | Consolidate the handling logic for the 3 wallet types to avoid inconsistent behavior | Medium |
-| 1. Connect Wallet | Move the RPC API key into an environment variable | Medium |
+| 1. Connect Wallet | Fix mobile deep-link connect, which currently fails to complete | High |
+| 1. Connect Wallet | Coinbase Wallet disconnect shows the loading spinner twice before finishing | Medium |
 | 2. Sign-In (SIWE) | Move the nonce to server-issued to block signature-reuse risk | **Critical** |
 | 2. Sign-In (SIWE) | Remove/gate the internal debug page from production | High |
 | 2. Sign-In (SIWE) | Re-enable the chain check before signing | Medium |
