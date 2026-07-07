@@ -44,7 +44,7 @@ The Web3 features (wallet connection, wallet login, send token) are working and 
 │ 4. SEND TOKEN                        │
 │    Recipient → Amount → Confirm&Sign │
 │    → Wait Confirmation               │
-└──────────────────┬───────────────────┘
+└──────────────────────────────────────┘
      [Recipient step]
      • Validate recipient address format .... [HIGH]
      • Warn on special addresses ............ [MEDIUM]
