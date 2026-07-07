@@ -30,7 +30,6 @@ The Web3 features (wallet connection, wallet login, send token) are working and 
 │ 2. SIGN-IN (SIWE)                    │
 └──────────────────────────────────────┘
      • Move nonce to server-issued .......... [CRITICAL]
-     • Remove/gate debug page from prod ..... [HIGH]
      • Re-enable chain check before signing . [MEDIUM]
                     │
                     ▼
@@ -66,7 +65,6 @@ Summary by step:
 | 1. Connect Wallet | Fix mobile deep-link connect, which currently fails to complete | High |
 | 1. Connect Wallet | Coinbase Wallet disconnect shows the loading spinner twice before finishing | Medium |
 | 2. Sign-In (SIWE) | Move the nonce to server-issued to block signature-reuse risk | **Critical** |
-| 2. Sign-In (SIWE) | Remove/gate the internal debug page from production | High |
 | 2. Sign-In (SIWE) | Re-enable the chain check before signing | Medium |
 | 3. Session & Multi-wallet | Add a permanent wallet-unlink feature | Low |
 | 4. Send Token — Recipient step | Validate address format as soon as it's entered | High |
